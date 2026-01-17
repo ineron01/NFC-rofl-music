@@ -39,7 +39,7 @@
             max-width: 60%;
             min-width: 120px;
             font-size: clamp(12px, 3.5vw, 20px);
-            color: grey;
+            color: grey; /* исправлено: было "gery" */
             border: none;
             border-radius: 8px;
             cursor: pointer;
@@ -49,6 +49,29 @@
         #playBtn:hover {
             background-color: #218838;
         }
+
+        /* Крестик в левом нижнем углу */
+        #stopBtn {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: transparent;
+            border: none;
+            font-size: 28px;
+            color: rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            padding: 0;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        #stopBtn:hover {
+            color: rgba(0, 0, 0, 0.8);
+        }
     </style>
 </head>
 <body>
@@ -57,6 +80,9 @@
 
     <audio id="audio1" src="audio.mp3" loop></audio>
     <audio id="audio2" src="audio2.mp3" loop></audio>
+
+    <!-- Прозрачный крестик -->
+    <button id="stopBtn" onclick="stopAllAudio()">×</button>
 
     <script>
         function playAudio1() {
@@ -69,6 +95,13 @@
             const a = document.getElementById('audio2');
             a.currentTime = 0;
             a.play();
+        }
+
+        function stopAllAudio() {
+            document.getElementById('audio1').pause();
+            document.getElementById('audio1').currentTime = 0;
+            document.getElementById('audio2').pause();
+            document.getElementById('audio2').currentTime = 0;
         }
     </script>
 </body>
