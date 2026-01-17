@@ -39,7 +39,7 @@
             max-width: 60%;
             min-width: 120px;
             font-size: clamp(12px, 3.5vw, 20px);
-            color: gery;
+            color: grey;
             border: none;
             border-radius: 8px;
             cursor: pointer;
@@ -55,16 +55,20 @@
     <button id="playBtn" onclick="playAudio1()">Начать</button>
     <button id="backBtn" onclick="playAudio2()">Отмена</button>
 
-    <audio id="audio1" src="audio.mp3"></audio>
-    <audio id="audio2" src="audio2.mp3"></audio>
+    <audio id="audio1" src="audio.mp3" loop></audio>
+    <audio id="audio2" src="audio2.mp3" loop></audio>
 
     <script>
         function playAudio1() {
-            document.getElementById('audio1').play();
+            const a = document.getElementById('audio1');
+            a.currentTime = 0;
+            a.play();
         }
 
         function playAudio2() {
-            document.getElementById('audio2').play();
+            const a = document.getElementById('audio2');
+            a.currentTime = 0;
+            a.play();
         }
     </script>
 </body>
